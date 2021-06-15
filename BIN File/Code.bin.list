@@ -1,0 +1,1618 @@
+EMU8086 GENERATED LISTING. MACHINE CODE <- SOURCE.
+ 
+Code.bin -- emu8086 assembler version: 4.08  
+ 
+[ 4/19/2021  --  12:10:47 PM ] 
+ 
+===================================================================================================
+[LINE]     LOC: MACHINE CODE                          SOURCE
+===================================================================================================
+ 
+[   1]        :                                       #LOAD_SEGMENT=0500H#
+[   2]        :                                       #LOAD_OFFSET=0000H#
+[   3]        :                                       
+[   4]        :                                       #CS=0500H#
+[   5]        :                                       #IP=0000H#
+[   6]        :                                       
+[   7]        :                                       #DS=0500H#
+[   8]        :                                       #ES=0500H#
+[   9]        :                                       
+[  10]        :                                       #SS=0000H#
+[  11]        :                                       #SP=FFFEH#
+[  12]        :                                       
+[  13]        :                                       ; set general registers (optional)
+[  14]        :                                       #AX=0000h#
+[  15]        :                                       #BX=0000h#
+[  16]        :                                       #CX=0000h#
+[  17]        :                                       #DX=0000h#
+[  18]        :                                       #SI=0000h#
+[  19]        :                                       #DI=0000h#
+[  20]        :                                       #BP=0000h#
+[  21]        :                                       
+[  22]        :                                       
+[  23]        :                                       
+[  24]        :                                       
+[  25]    0000: B8 B5 16                              MOV AX, OFFSET ISR0			;Initialisation of Interrupt Vector Table
+[  26]    0003: A3 00 02                              MOV [00200H], AX 			
+[  27]    0006: 8C C8                                 MOV AX, SEG ISR0
+[  28]    0008: A3 02 02                              MOV [00202H], AX
+[  29]        :                                       
+[  30]    000B: B8 92 11                              MOV AX, OFFSET ISR1
+[  31]    000E: A3 04 02                              MOV [00204H], AX
+[  32]    0011: 8C C8                                 MOV AX, SEG ISR1
+[  33]    0013: A3 06 02                              MOV [00206H], AX
+[  34]        :                                       
+[  35]    0016: B8 96 15                              MOV AX, OFFSET ISR2
+[  36]    0019: A3 08 02                              MOV [00208H], AX
+[  37]    001C: 8C C8                                 MOV AX, SEG ISR2
+[  38]    001E: A3 0A 02                              MOV [0020AH], AX
+[  39]        :                                       
+[  40]    0021: B8 5B 14                              MOV AX, OFFSET ISR3
+[  41]    0024: A3 0C 02                              MOV [0020CH], AX
+[  42]    0027: 8C C8                                 MOV AX, SEG ISR3
+[  43]    0029: A3 0E 02                              MOV [0020EH], AX
+[  44]        :                                       
+[  45]        :                                       
+[  46]    002C: E9 F3 02                              JMP START
+[  47]    002F: 00 00 00 00 00 00 00 00 00 00 00 00   DB 512 DUP(0)
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00             
+[  48]        :                                       
+[  49]        :                                       ;-------------------------DATA-SEGMENT-----------------------;
+[  50]    022F: 00                                    CSTATEA DB 00H
+[  51]    0230: 00                                    CSTATEB DB 00H
+[  52]        :                                       
+[  53]    0231: 54 45 4D 28 43 29 3A                  T_DISP DB 'TEM(C):'    		;Temperature
+[  54]    0238: 2D 2D 2D 2D 2D 2D 2D 2D 2D 2D 2D 2D   LCDLN2 DB 16 DUP('-')
+                2D 2D 2D 2D                         
+[  55]    0248: 2E 2E 2E 2E 2E 2E 2E 2E 2E 2E 2E 2E   LCDLN3 DB 16 DUP('.')
+                2E 2E 2E 2E                         
+[  56]    0258: 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A   LCDLN4 DB 16 DUP('*')
+                2A 2A 2A 2A                         
+[  57]    0268: 07                                    T_CNT DB 7D
+[  58]        :                                       
+[  59]        :                                       
+[  60]    0269: 00 00                                 T_FLAG	DW 0
+[  61]    026B: 00 00 00 00 00 00 00 00 00 00 00 00   VALS 		DB 12 DUP(0)
+                                                    
+[  62]    0277: 00 00                                 CTR 		DW 0
+[  63]    0279: 00                                    READYFORHOUR DB 1 DUP(0)
+[  64]        :                                       
+[  65]    027A: 00                                    THP DB 1 DUP(0)
+[  66]        :                                       
+[  67]        :                                       
+[  68]    027B: 48 55 4D 28 25 29 3A                  H_DISP DB 'HUM(%):' 		;Humidity
+[  69]    0282: 2D 2D 2D 2D 2D 2D 2D 2D 2D 2D 2D 2D   LCDLN22 DB 16 DUP('-')
+                2D 2D 2D 2D                         
+[  70]    0292: 2E 2E 2E 2E 2E 2E 2E 2E 2E 2E 2E 2E   LCDLN33 DB 16 DUP('.')
+                2E 2E 2E 2E                         
+[  71]    02A2: 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A   LCDLN44 DB 16 DUP('*')
+                2A 2A 2A 2A                         
+[  72]    02B2: 07                                    H_CNT DB 7D
+[  73]        :                                       
+[  74]    02B3: 00 00                                 H_FLAG	DW 0
+[  75]    02B5: 00 00 00 00 00 00 00 00 00 00 00 00   VALS11 		DB 12 DUP(0)
+                                                    
+[  76]    02C1: 00 00                                 CTR11 		DW 0
+[  77]        :                                       
+[  78]        :                                       
+[  79]    02C3: 50 52 45 53 28 42 41 29 3A            P_DISP DB 'PRES(BA):' 		;Pressure
+[  80]    02CC: 2D 2D 2D 2D 2D 2D 2D 2D 2D 2D 2D 2D   LCDLN222 DB 16 DUP('-')
+                2D 2D 2D 2D                         
+[  81]    02DC: 2E 2E 2E 2E 2E 2E 2E 2E 2E 2E 2E 2E   LCDLN333 DB 16 DUP('.')
+                2E 2E 2E 2E                         
+[  82]    02EC: 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A   LCDLN444 DB 16 DUP('*')
+                2A 2A 2A 2A                         
+[  83]    02FC: 09                                    P_CNT DB 9D
+[  84]        :                                       
+[  85]    02FD: 00 00                                 P_FLAG	DW 0
+[  86]    02FF: 00 00 00 00 00 00 00 00 00 00 00 00   VALS111		DB 12 DUP(0)
+                                                    
+[  87]    030B: 00 00                                 CTR111		DW 0
+[  88]        :                                       
+[  89]    030D: 00 00 00 00 00 00 00 00 00 00 00 00   NUMSTR DB 16 DUP(0)
+                00 00 00 00                         
+[  90]        :                                       
+[  91]    031D: 00                                    Q DB 0
+[  92]    031E: 00                                    R DB 0
+[  93]        :                                       
+[  94]    031F: 0C 00                                 DIVBY DW 12D
+[  95]    0321: 00                                    UPDATENOW DB 00H
+[  96]        :                                       
+[  97]        :                                       
+[  98]        :                                       ;------------------------START-INITS-----------------------;
+[  99]        :                                       
+[ 100]    0322: FA                                    START: CLI
+[ 101]        :                                       
+[ 102]        :                                       A8259 EQU 4000H
+[ 103]        :                                       A8255 EQU 4010H
+[ 104]        :                                       B8255 EQU 4020H
+[ 105]        :                                       A8253 EQU 4030H
+[ 106]        :                                       B8253 EQU 4040H
+[ 107]        :                                       
+[ 108]        :                                       
+[ 109]        :                                       8259_INIT:
+[ 110]        :                                       
+[ 111]        :                                       ;ICW1
+[ 112]    0323: B0 13                                 MOV AL, 00010011B   ;ICW4 NEEDED (SINGLE 8259)
+[ 113]    0325: BA 00 40                              MOV DX, A8259+00H   ; DX HAS 1ST ADDRESS OF 8259
+[ 114]    0328: EE                                    OUT DX, AL
+[ 115]        :                                       
+[ 116]        :                                       ;ICW2
+[ 117]    0329: B0 80                                 MOV AL, 10000000B   ; DX HAS 2ND ADDRESS OF 8259
+[ 118]    032B: BA 02 40                              MOV DX, A8259+02H   ; 80H IS GENERATEDFOR IR0 IE BUT-INT
+[ 119]    032E: EE                                    OUT DX,AL
+[ 120]        :                                       
+[ 121]        :                                       ;ICW4
+[ 122]    032F: B0 03                                 MOV AL, 00000011B       ; REST FOLLOW 80H - 87H
+[ 123]    0331: EE                                    OUT DX,AL
+[ 124]        :                                       
+[ 125]        :                                       ;OCW1
+[ 126]    0332: B0 FE                                 MOV AL, 11111110B   ; NON BUFFERED MODE WITH AEOI ENABLED
+[ 127]    0334: EE                                    OUT DX, AL
+[ 128]        :                                       
+[ 129]        :                                       
+[ 130]        :                                       8255_INIT:			
+[ 131]    0335: B0 82                                 MOV AL, 10000010B       ;Port A -O/P. Port B -I/P
+[ 132]    0337: BA 16 40                              MOV DX, A8255+06H
+[ 133]    033A: EE                                    OUT DX, AL
+[ 134]        :                                       
+[ 135]        :                                       ;Initalise 8255 B for controlling ADC
+[ 136]    033B: B0 82                                 MOV AL, 10000010B
+[ 137]    033D: BA 26 40                              MOV DX, B8255+06H
+[ 138]    0340: EE                                    OUT DX, AL
+[ 139]        :                                       
+[ 140]        :                                       8253_INIT:              ; COUNTER0 - SQ. WAVE - BINARY I/P(2MHZ-I/P)
+[ 141]        :                                       ;1MHZ
+[ 142]    0341: B0 16                                 MOV AL, 00010110B
+[ 143]    0343: BA 36 40                              MOV DX, A8253+06H
+[ 144]    0346: EE                                    OUT DX, AL
+[ 145]    0347: B0 02                                 MOV AL, 02H
+[ 146]    0349: BA 30 40                              MOV DX, A8253+00H       ; TO INPDE BY 2 - TO GIVE 1MHZ
+[ 147]    034C: EE                                    OUT DX, AL
+[ 148]        :                                       
+[ 149]        :                                       
+[ 150]        :                                       ;16HZ
+[ 151]    034D: B0 76                                 MOV AL, 01110110B       ;COUNTER1 - SQ. WAVE - BINARY I/P
+[ 152]    034F: BA 36 40                              MOV DX, A8253+06H
+[ 153]    0352: EE                                    OUT DX, AL
+[ 154]    0353: B0 24                                 MOV AL, 24H              ; COUNT = 62500 = 0F424H
+[ 155]    0355: BA 32 40                              MOV DX, A8253+02H
+[ 156]    0358: EE                                    OUT DX, AL
+[ 157]    0359: B0 F4                                 MOV AL, 0F4H
+[ 158]    035B: EE                                    OUT DX, AL
+[ 159]        :                                       
+[ 160]        :                                       ;5MIN
+[ 161]    035C: B0 B4                                 MOV AL, 10110100B       ;CNTR3 - USING MODE 2 - EVERY 5 MIN(LOW)
+[ 162]    035E: BA 36 40                              MOV DX, A8253+06H       ;MUST BE INVERTED AND GIVEN AS INTERRUPT
+[ 163]    0361: EE                                    OUT DX, AL
+[ 164]    0362: B0 C0                                 MOV AL, 0C0H
+[ 165]    0364: BA 34 40                              MOV DX, A8253+04H
+[ 166]    0367: EE                                    OUT DX, AL
+[ 167]    0368: B0 12                                 MOV AL, 12H
+[ 168]    036A: EE                                    OUT DX, AL
+[ 169]        :                                       
+[ 170]        :                                       ;1HR
+[ 171]    036B: B0 34                                 MOV AL, 00110100B       ;COUNTER 0 - 16HZ TO 1HR PULSE (OBSOLETE)
+[ 172]    036D: BA 46 40                              MOV DX, B8253+06H
+[ 173]    0370: EE                                    OUT DX, AL
+[ 174]    0371: B0 00                                 MOV AL, 00H
+[ 175]    0373: BA 40 40                              MOV DX, B8253+00H
+[ 176]    0376: EE                                    OUT DX, AL
+[ 177]    0377: B0 E1                                 MOV AL, 0E1H
+[ 178]    0379: EE                                    OUT DX, AL
+[ 179]        :                                       
+[ 180]        :                                       
+[ 181]    037A:                                       LCD_INIT:
+[ 182]        :                                       LCDEN EQU 80H
+[ 183]        :                                       LCDRW EQU 40H
+[ 184]        :                                       LCDRS EQU 20H
+[ 185]        :                                       
+[ 186]    037A: 50 53 51 52 56 57 B0 40 34 FF 8A 1E   ACLRB LCDRW
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58             
+[ 187]    039A: 50 53 51 52 56 57 B0 20 34 FF 8A 1E   LCD_OUT 38H
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 50 53 51 52 
+                56 57 B0 38 BA 10 40 EE 50 53 51 52 
+                56 57 B0 80 8A 1E 2F 02 0A C3 BA 14 
+                40 EE 8A D8 88 1E 2F 02 5F 5E 5A 59 
+                5B 58 50 53 51 52 56 57 B0 80 34 FF 
+                8A 1E 2F 02 22 C3 BA 14 40 EE 8A D8 
+                88 1E 2F 02 5F 5E 5A 59 5B 58 E8 66 
+                03 5F 5E 5A 59 5B 58                
+[ 188]    040D: 50 53 51 52 56 57 B0 20 34 FF 8A 1E   LCD_OUT 0EH
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 50 53 51 52 
+                56 57 B0 0E BA 10 40 EE 50 53 51 52 
+                56 57 B0 80 8A 1E 2F 02 0A C3 BA 14 
+                40 EE 8A D8 88 1E 2F 02 5F 5E 5A 59 
+                5B 58 50 53 51 52 56 57 B0 80 34 FF 
+                8A 1E 2F 02 22 C3 BA 14 40 EE 8A D8 
+                88 1E 2F 02 5F 5E 5A 59 5B 58 E8 F3 
+                02 5F 5E 5A 59 5B 58                
+[ 189]    0480: 50 53 51 52 56 57 B0 20 34 FF 8A 1E   LCD_OUT 06H
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 50 53 51 52 
+                56 57 B0 06 BA 10 40 EE 50 53 51 52 
+                56 57 B0 80 8A 1E 2F 02 0A C3 BA 14 
+                40 EE 8A D8 88 1E 2F 02 5F 5E 5A 59 
+                5B 58 50 53 51 52 56 57 B0 80 34 FF 
+                8A 1E 2F 02 22 C3 BA 14 40 EE 8A D8 
+                88 1E 2F 02 5F 5E 5A 59 5B 58 E8 80 
+                02 5F 5E 5A 59 5B 58                
+[ 190]        :                                       
+[ 191]    04F3: 50 53 51 52 56 57 B0 20 34 FF 8A 1E   LCD_CLEAR
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 50 53 51 52 
+                56 57 B0 01 BA 10 40 EE 50 53 51 52 
+                56 57 B0 80 8A 1E 2F 02 0A C3 BA 14 
+                40 EE 8A D8 88 1E 2F 02 5F 5E 5A 59 
+                5B 58 50 53 51 52 56 57 B0 80 34 FF 
+                8A 1E 2F 02 22 C3 BA 14 40 EE 8A D8 
+                88 1E 2F 02 5F 5E 5A 59 5B 58 E8 0D 
+                02 5F 5E 5A 59 5B 58                
+[ 192]        :                                       
+[ 193]        :                                       ;------------------------START-CODE-------------------------;
+[ 194]        :                                       
+[ 195]        :                                       ; PERFORM INITIAL DISPLAY ...
+[ 196]        :                                       
+[ 197]        :                                       ;TURN ON ADC - TEMPERATURE
+[ 198]    0566: C6 06 7A 02 00                        MOV THP,00H
+[ 199]    056B: CD 81                                 INT 81H
+[ 200]        :                                       
+[ 201]        :                                       ;WAIT FOR EOC
+[ 202]        :                                       
+[ 203]    056D:                                       EOCINT1:
+[ 204]    056D: BA 12 40                              MOV DX, A8255+02H
+[ 205]    0570: EC                                    IN AL, DX
+[ 206]    0571: 8A D8                                 MOV BL, AL
+[ 207]    0573: 80 E3 08                              AND BL, 08H
+[ 208]    0576: 75 F5                                 JNZ EOCINT1
+[ 209]        :                                       
+[ 210]    0578:                                       EOCINT2:
+[ 211]    0578: BA 12 40                              MOV DX, A8255+02H
+[ 212]    057B: EC                                    IN AL, DX
+[ 213]    057C: 8A D8                                 MOV BL, AL
+[ 214]    057E: 80 E3 08                              AND BL, 08H
+[ 215]    0581: 74 F5                                 JZ EOCINT2
+[ 216]        :                                       
+[ 217]    0583: C6 06 7A 02 00                        MOV THP,00H
+[ 218]    0588: CD 83                                 INT 83H			;Store Values for Temperature
+[ 219]        :                                       
+[ 220]    058A: C6 06 7A 02 01                        MOV THP,01H
+[ 221]    058F: CD 81                                 INT 81H     	;Repeat for HUMIDITY
+[ 222]        :                                       
+[ 223]        :                                       
+[ 224]    0591:                                       EOCINT3:   		;Loop to wait for end of Conversion
+[ 225]    0591: BA 12 40                              MOV DX, A8255+02H
+[ 226]    0594: EC                                    IN AL, DX
+[ 227]    0595: 8A D8                                 MOV BL, AL
+[ 228]    0597: 80 E3 08                              AND BL, 08H
+[ 229]    059A: 75 F5                                 JNZ EOCINT3
+[ 230]        :                                       
+[ 231]    059C:                                       EOCINT4:
+[ 232]    059C: BA 12 40                              MOV DX, A8255+02H
+[ 233]    059F: EC                                    IN AL, DX
+[ 234]    05A0: 8A D8                                 MOV BL, AL
+[ 235]    05A2: 80 E3 08                              AND BL, 08H
+[ 236]    05A5: 74 F5                                 JZ EOCINT4
+[ 237]        :                                       
+[ 238]        :                                       
+[ 239]    05A7: C6 06 7A 02 01                        MOV THP,01H
+[ 240]    05AC: CD 83                                 INT 83H
+[ 241]        :                                       
+[ 242]    05AE: C6 06 7A 02 11                        MOV THP,11H
+[ 243]    05B3: CD 81                                 INT 81H
+[ 244]        :                                       
+[ 245]        :                                       ;WAIT FOR EOC
+[ 246]    05B5:                                       EOCINT5:
+[ 247]    05B5: BA 12 40                              MOV DX, A8255+02H
+[ 248]    05B8: EC                                    IN AL, DX
+[ 249]    05B9: 8A D8                                 MOV BL, AL
+[ 250]    05BB: 80 E3 08                              AND BL, 08H
+[ 251]    05BE: 75 F5                                 JNZ EOCINT5
+[ 252]        :                                       
+[ 253]    05C0:                                       EOCINT6:
+[ 254]    05C0: BA 12 40                              MOV DX, A8255+02H
+[ 255]    05C3: EC                                    IN AL, DX
+[ 256]    05C4: 8A D8                                 MOV BL, AL
+[ 257]    05C6: 80 E3 08                              AND BL, 08H
+[ 258]    05C9: 74 F5                                 JZ EOCINT6
+[ 259]        :                                       
+[ 260]        :                                       
+[ 261]    05CB: C6 06 7A 02 11                        MOV THP,11H
+[ 262]    05D0: CD 83                                 INT 83H
+[ 263]        :                                       
+[ 264]        :                                       
+[ 265]    05D2: C6 06 7A 02 00                        MOV THP,00H
+[ 266]    05D7: CD 82                                 INT 82H
+[ 267]    05D9: C6 06 7A 02 01                        MOV THP,01H
+[ 268]    05DE: CD 82                                 INT 82H
+[ 269]    05E0: C6 06 7A 02 11                        MOV THP,11H
+[ 270]    05E5: CD 82                                 INT 82H
+[ 271]        :                                       
+[ 272]        :                                       ; --------END OF INITIAL DISPLAY ---------------
+[ 273]        :                                       
+[ 274]        :                                       ;POLL PORTB OF A8255 FOREVER
+[ 275]    05E7:                                       XINF:
+[ 276]        :                                       ;CHECK IF BUTTON IS PRESSED USING A FLAG STORED IN MEMORY
+[ 277]    05E7: A0 21 03                              MOV AL, UPDATENOW
+[ 278]    05EA: 3C 01                                 CMP AL, 01H
+[ 279]    05EC: 74 03 E9 86 00                        JNZ CONT
+[ 280]    05F1: C6 06 21 03 00                        MOV UPDATENOW, 00H
+[ 281]        :                                       
+[ 282]    05F6: C6 06 7A 02 00                        MOV THP,00H         ;FOR TEMPERATURE
+[ 283]    05FB: CD 81                                 INT 81H ;TURN ON ADC
+[ 284]        :                                       
+[ 285]        :                                       ;WAIT FOR EOC
+[ 286]    05FD:                                       EOCINT7:
+[ 287]    05FD: BA 12 40                              MOV DX, A8255+02H
+[ 288]    0600: EC                                    IN AL, DX
+[ 289]    0601: 8A D8                                 MOV BL, AL
+[ 290]    0603: 80 E3 08                              AND BL, 08H
+[ 291]    0606: 75 F5                                 JNZ EOCINT7
+[ 292]        :                                       
+[ 293]    0608:                                       EOCINT8:
+[ 294]    0608: BA 12 40                              MOV DX, A8255+02H
+[ 295]    060B: EC                                    IN AL, DX
+[ 296]    060C: 8A D8                                 MOV BL, AL
+[ 297]    060E: 80 E3 08                              AND BL, 08H
+[ 298]    0611: 74 F5                                 JZ EOCINT8
+[ 299]        :                                       
+[ 300]        :                                       
+[ 301]    0613: C6 06 7A 02 00                        MOV THP,00H
+[ 302]    0618: CD 83                                 INT 83H
+[ 303]        :                                       
+[ 304]    061A: C6 06 7A 02 01                        MOV THP,01H
+[ 305]    061F: CD 81                                 INT 81H     ; DO SAME FOR HUMI
+[ 306]        :                                       
+[ 307]        :                                       ;WAIT FOR EOC
+[ 308]    0621:                                       EOCINT9:
+[ 309]    0621: BA 12 40                              MOV DX, A8255+02H
+[ 310]    0624: EC                                    IN AL, DX
+[ 311]    0625: 8A D8                                 MOV BL, AL
+[ 312]    0627: 80 E3 08                              AND BL, 08H
+[ 313]    062A: 75 F5                                 JNZ EOCINT9
+[ 314]        :                                       
+[ 315]    062C:                                       EOCINT10:
+[ 316]    062C: BA 12 40                              MOV DX, A8255+02H
+[ 317]    062F: EC                                    IN AL, DX
+[ 318]    0630: 8A D8                                 MOV BL, AL
+[ 319]    0632: 80 E3 08                              AND BL, 08H
+[ 320]    0635: 74 F5                                 JZ EOCINT10
+[ 321]        :                                       
+[ 322]        :                                       
+[ 323]    0637: C6 06 7A 02 01                        MOV THP,01H
+[ 324]    063C: CD 83                                 INT 83H
+[ 325]        :                                       
+[ 326]        :                                       
+[ 327]    063E: C6 06 7A 02 11                        MOV THP,11H ; FOR PRESSURE
+[ 328]    0643: CD 81                                 INT 81H
+[ 329]        :                                       
+[ 330]        :                                       
+[ 331]        :                                       
+[ 332]        :                                       ;WAIT FOR EOC
+[ 333]    0645:                                       EOCINT11:
+[ 334]    0645: BA 12 40                              MOV DX, A8255+02H
+[ 335]    0648: EC                                    IN AL, DX
+[ 336]    0649: 8A D8                                 MOV BL, AL
+[ 337]    064B: 80 E3 08                              AND BL, 08H
+[ 338]    064E: 75 F5                                 JNZ EOCINT11
+[ 339]        :                                       
+[ 340]    0650:                                       EOCINT12:
+[ 341]    0650: BA 12 40                              MOV DX, A8255+02H
+[ 342]    0653: EC                                    IN AL, DX
+[ 343]    0654: 8A D8                                 MOV BL, AL
+[ 344]    0656: 80 E3 08                              AND BL, 08H
+[ 345]    0659: 74 F5                                 JZ EOCINT12
+[ 346]        :                                       
+[ 347]    065B: C6 06 7A 02 11                        MOV THP,11H
+[ 348]    0660: CD 83                                 INT 83H
+[ 349]        :                                       
+[ 350]        :                                       
+[ 351]    0662: C6 06 7A 02 00                        MOV THP,00H
+[ 352]    0667: CD 82                                 INT 82H
+[ 353]    0669: C6 06 7A 02 01                        MOV THP,01H
+[ 354]    066E: CD 82                                 INT 82H
+[ 355]    0670: C6 06 7A 02 11                        MOV THP,11H
+[ 356]    0675: CD 82                                 INT 82H
+[ 357]        :                                       
+[ 358]        :                                       
+[ 359]        :                                       
+[ 360]        :                                       ;REGULAR POLLING
+[ 361]    0677:                                       CONT:
+[ 362]    0677: BA 12 40                              MOV DX, A8255+02H
+[ 363]    067A: EC                                    IN AL, DX
+[ 364]        :                                       
+[ 365]    067B: 8A D8                                 MOV BL, AL
+[ 366]    067D: 80 E3 01                              AND BL, 01H
+[ 367]    0680: 74 1E                                 JZ BUTINT
+[ 368]        :                                       
+[ 369]    0682: 8A D8                                 MOV BL, AL
+[ 370]    0684: 80 E3 02                              AND BL, 02H
+[ 371]    0687: 74 21                                 JZ FIVEMIN
+[ 372]        :                                       
+[ 373]    0689: 8A D8                                 MOV BL, AL
+[ 374]    068B: 80 E3 04                              AND BL, 04H
+[ 375]    068E: 75 03 E9 B0 00                        JZ ONEHR
+[ 376]        :                                       
+[ 377]    0693: 8A D8                                 MOV BL, AL
+[ 378]    0695: 80 E3 08                              AND BL, 08H
+[ 379]    0698: 75 03 E9 B0 00                        JZ EOCINT
+[ 380]    069D: E9 47 FF                              JMP XINF
+[ 381]        :                                       
+[ 382]        :                                       ;LOW LOGIC DETECTED. WAIT FOR WHOLE PULSE
+[ 383]    06A0:                                       BUTINT:
+[ 384]    06A0: EC                                    IN AL, DX
+[ 385]    06A1: 24 01                                 AND AL, 01H
+[ 386]    06A3: 74 FB                                 JZ BUTINT
+[ 387]        :                                       
+[ 388]    06A5: CD 80                                 INT 80H
+[ 389]    06A7: E9 3D FF                              JMP XINF
+[ 390]        :                                       
+[ 391]    06AA:                                       FIVEMIN:
+[ 392]    06AA: EC                                    IN AL, DX
+[ 393]    06AB: 24 02                                 AND AL, 02H
+[ 394]    06AD: 74 FB                                 JZ FIVEMIN
+[ 395]        :                                       
+[ 396]    06AF: C6 06 7A 02 00                        MOV THP,00H
+[ 397]    06B4: CD 81                                 INT 81H
+[ 398]        :                                       
+[ 399]    06B6:                                       EOCINT13:
+[ 400]    06B6: BA 12 40                              MOV DX, A8255+02H
+[ 401]    06B9: EC                                    IN AL, DX
+[ 402]    06BA: 8A D8                                 MOV BL, AL
+[ 403]    06BC: 80 E3 08                              AND BL, 08H
+[ 404]    06BF: 75 F5                                 JNZ EOCINT13
+[ 405]        :                                       
+[ 406]    06C1:                                       EOCINT14:
+[ 407]    06C1: BA 12 40                              MOV DX, A8255+02H
+[ 408]    06C4: EC                                    IN AL, DX
+[ 409]    06C5: 8A D8                                 MOV BL, AL
+[ 410]    06C7: 80 E3 08                              AND BL, 08H
+[ 411]    06CA: 74 F5                                 JZ EOCINT14
+[ 412]        :                                       
+[ 413]    06CC: C6 06 7A 02 00                        MOV THP,00H
+[ 414]    06D1: CD 83                                 INT 83H
+[ 415]        :                                       
+[ 416]        :                                       
+[ 417]    06D3: C6 06 7A 02 01                        MOV THP,01H
+[ 418]    06D8: CD 81                                 INT 81H
+[ 419]        :                                       
+[ 420]        :                                       
+[ 421]        :                                       ;WAIT FOR EOC
+[ 422]    06DA:                                       EOCINT15:
+[ 423]    06DA: BA 12 40                              MOV DX, A8255+02H
+[ 424]    06DD: EC                                    IN AL, DX
+[ 425]    06DE: 8A D8                                 MOV BL, AL
+[ 426]    06E0: 80 E3 08                              AND BL, 08H
+[ 427]    06E3: 75 F5                                 JNZ EOCINT15
+[ 428]        :                                       
+[ 429]        :                                       
+[ 430]    06E5:                                       EOCINT16:
+[ 431]    06E5: BA 12 40                              MOV DX, A8255+02H
+[ 432]    06E8: EC                                    IN AL, DX
+[ 433]    06E9: 8A D8                                 MOV BL, AL
+[ 434]    06EB: 80 E3 08                              AND BL, 08H
+[ 435]    06EE: 74 F5                                 JZ EOCINT16
+[ 436]        :                                       
+[ 437]    06F0: C6 06 7A 02 01                        MOV THP,01H
+[ 438]    06F5: CD 83                                 INT 83H
+[ 439]        :                                       
+[ 440]        :                                       
+[ 441]    06F7: C6 06 7A 02 11                        MOV THP,11H
+[ 442]    06FC: CD 81                                 INT 81H
+[ 443]        :                                       
+[ 444]        :                                       
+[ 445]        :                                       ;WAIT FOR EOC
+[ 446]    06FE:                                       EOCINT17:
+[ 447]    06FE: BA 12 40                              MOV DX, A8255+02H
+[ 448]    0701: EC                                    IN AL, DX
+[ 449]    0702: 8A D8                                 MOV BL, AL
+[ 450]    0704: 80 E3 08                              AND BL, 08H
+[ 451]    0707: 75 F5                                 JNZ EOCINT17
+[ 452]        :                                       
+[ 453]        :                                       
+[ 454]    0709:                                       EOCINT18:
+[ 455]    0709: BA 12 40                              MOV DX, A8255+02H
+[ 456]    070C: EC                                    IN AL, DX
+[ 457]    070D: 8A D8                                 MOV BL, AL
+[ 458]    070F: 80 E3 08                              AND BL, 08H
+[ 459]    0712: 74 F5                                 JZ EOCINT18
+[ 460]        :                                       
+[ 461]    0714: C6 06 7A 02 11                        MOV THP,11H
+[ 462]    0719: CD 83                                 INT 83H
+[ 463]        :                                       
+[ 464]        :                                       
+[ 465]        :                                       ;CHANGE VALUE OF NO. OF 5 MIN INTERVALS TAKEN DURING SIMULATION
+[ 466]        :                                       
+[ 467]    071B: FE 06 79 02                           INC READYFORHOUR
+[ 468]        :                                       
+[ 469]    071F: 80 3E 79 02 02                        CMP READYFORHOUR,02H
+[ 470]    0724: 75 1A                                 JNZ DONOTCALLONEHOUR
+[ 471]        :                                       
+[ 472]    0726: C6 06 7A 02 00                        MOV THP,00H
+[ 473]    072B: CD 82                                 INT 82H ; CALL THE 1 HOUR INTERRUPT
+[ 474]    072D: C6 06 7A 02 01                        MOV THP,01H
+[ 475]    0732: CD 82                                 INT 82H
+[ 476]    0734: C6 06 7A 02 11                        MOV THP,11H
+[ 477]    0739: CD 82                                 INT 82H
+[ 478]        :                                       
+[ 479]    073B: C6 06 79 02 00                        MOV READYFORHOUR,00H ; RESET THE 12, 5-MIN INTERVAL COUNT
+[ 480]        :                                       
+[ 481]        :                                       
+[ 482]    0740: E9 A4 FE                              DONOTCALLONEHOUR: JMP XINF
+[ 483]        :                                       
+[ 484]        :                                       
+[ 485]        :                                       ; OBSOLETE. IS NOT USE AS INTRPT IS CALLED DIRECTLY
+[ 486]        :                                       
+[ 487]    0743:                                       ONEHR:
+[ 488]    0743: EC                                    IN AL, DX
+[ 489]    0744: 24 04                                 AND AL, 04H
+[ 490]    0746: 74 FB                                 JZ ONEHR
+[ 491]        :                                       
+[ 492]    0748: CD 82                                 INT 82H
+[ 493]    074A: E9 9A FE                              JMP XINF
+[ 494]        :                                       
+[ 495]    074D:                                       EOCINT:
+[ 496]    074D: EC                                    IN AL, DX
+[ 497]    074E: 24 08                                 AND AL, 08H
+[ 498]    0750: 74 FB                                 JZ EOCINT
+[ 499]        :                                       
+[ 500]    0752: C6 06 7A 02 00                        MOV THP,00H
+[ 501]    0757: CD 83                                 INT 83H
+[ 502]    0759: C6 06 7A 02 01                        MOV THP,01H
+[ 503]    075E: CD 83                                 INT 83H
+[ 504]    0760: C6 06 7A 02 11                        MOV THP,11H
+[ 505]    0765: CD 83                                 INT 83H
+[ 506]        :                                       
+[ 507]        :                                       
+[ 508]    0767: E9 7D FE                              JMP XINF
+[ 509]        :                                       
+[ 510]    076A: E9 4E 0F                              JMP QUIT
+[ 511]        :                                       
+[ 512]        :                                       
+[ 513]        :                                       
+[ 514]        :                                       ;------------------------START-MACROS-----------------------;
+[ 515]        :                                       PUSHALL MACRO
+[ 516]        :                                       PUSH AX
+[ 517]        :                                       PUSH BX
+[ 518]        :                                       PUSH CX
+[ 519]        :                                       PUSH DX
+[ 520]        :                                       PUSH SI
+[ 521]        :                                       PUSH DI
+[ 522]        :                                       ENDM
+[ 523]        :                                       
+[ 524]        :                                       POPALL MACRO
+[ 525]        :                                       POP DI
+[ 526]        :                                       POP SI
+[ 527]        :                                       POP DX
+[ 528]        :                                       POP CX
+[ 529]        :                                       POP BX
+[ 530]        :                                       POP AX
+[ 531]        :                                       ENDM
+[ 532]        :                                       
+[ 533]        :                                       ;Routines for Setting/Resetting Pins since this was more convenient than BSR
+[ 534]        :                                       ASETB    MACRO MBIT			;SET ONLY THE GIVEN PINS
+[ 535]        :                                       PUSHALL
+[ 536]        :                                       MOV AL, MBIT
+[ 537]        :                                       MOV BL, CSTATEA
+[ 538]        :                                       OR  AL, BL
+[ 539]        :                                       MOV DX, A8255+04H
+[ 540]        :                                       OUT DX, AL
+[ 541]        :                                       MOV BL, AL
+[ 542]        :                                       MOV CSTATEA, BL
+[ 543]        :                                       POPALL
+[ 544]        :                                       ENDM
+[ 545]        :                                       
+[ 546]        :                                       
+[ 547]        :                                       ACLRB    MACRO MBIT ;CLEAR ONLY THE GIVEN PINS
+[ 548]        :                                       PUSHALL
+[ 549]        :                                       MOV AL, MBIT
+[ 550]        :                                       XOR AL, 0FFH
+[ 551]        :                                       MOV BL, CSTATEA
+[ 552]        :                                       AND AL, BL
+[ 553]        :                                       MOV DX, A8255+04H
+[ 554]        :                                       OUT DX, AL
+[ 555]        :                                       MOV BL, AL
+[ 556]        :                                       MOV CSTATEA, BL
+[ 557]        :                                       POPALL
+[ 558]        :                                       ENDM
+[ 559]        :                                       
+[ 560]        :                                       ADCST EQU 01H
+[ 561]        :                                       ADCOE EQU 02H
+[ 562]        :                                       ADCA EQU 04H
+[ 563]        :                                       ADCB EQU 08H
+[ 564]        :                                       ADCC EQU 10H
+[ 565]        :                                       ADCALE EQU 20H
+[ 566]        :                                       
+[ 567]        :                                       BSETB    MACRO MBIT
+[ 568]        :                                       PUSHALL
+[ 569]        :                                       MOV AL, MBIT
+[ 570]        :                                       MOV BL, CSTATEB
+[ 571]        :                                       OR  AL, BL
+[ 572]        :                                       MOV DX, B8255+04H
+[ 573]        :                                       OUT DX, AL
+[ 574]        :                                       MOV BL, AL
+[ 575]        :                                       MOV CSTATEB, BL
+[ 576]        :                                       POPALL
+[ 577]        :                                       ENDM
+[ 578]        :                                       
+[ 579]        :                                       
+[ 580]        :                                       BCLRB    MACRO MBIT
+[ 581]        :                                       PUSHALL
+[ 582]        :                                       MOV AL, MBIT
+[ 583]        :                                       XOR AL, 0FFH
+[ 584]        :                                       MOV BL, CSTATEB
+[ 585]        :                                       AND AL, BL
+[ 586]        :                                       MOV DX, B8255+04H
+[ 587]        :                                       OUT DX, AL
+[ 588]        :                                       MOV BL, AL
+[ 589]        :                                       MOV CSTATEB, BL
+[ 590]        :                                       POPALL
+[ 591]        :                                       ENDM
+[ 592]        :                                       
+[ 593]        :                                       LCD_OUT    MACRO DAT
+[ 594]        :                                       ACLRB LCDRS					;CLEARS LCD RESET PIN
+[ 595]        :                                       PUSHALL						;PUSHES ALL REGISTERS TO STACK
+[ 596]        :                                       MOV AL, DAT					;COPIES DATA TO BE SENT TO LCD
+[ 597]        :                                       MOV DX, A8255+00H			;SETS ADDRESS OF DATA TO BE SENT
+[ 598]        :                                       OUT DX, AL					;SENDS DATA TO LCD
+[ 599]        :                                       ASETB LCDEN 				;SETS LCD ENABLE PIN
+[ 600]        :                                       ACLRB LCDEN					;RESETS LCD ENABLE PIN TO TRIGGER FALLING CLOCK PULSE
+[ 601]        :                                       CALL DELAY_20MS				;DELAY OF 20MS FOR LCD TO RECIEVE DATA
+[ 602]        :                                       POPALL
+[ 603]        :                                       ENDM
+[ 604]        :                                       
+[ 605]        :                                       
+[ 606]        :                                       PRINT_T MACRO DAT
+[ 607]        :                                       ASETB LCDRS						;SETS LCD RESET PIN FOR DATA
+[ 608]        :                                       PUSHALL							;
+[ 609]        :                                       MOV AL, DAT			
+[ 610]        :                                       MOV DX, A8255+00H
+[ 611]        :                                       OUT DX, AL
+[ 612]        :                                       ASETB LCDEN
+[ 613]        :                                       ACLRB LCDEN
+[ 614]        :                                       POPALL
+[ 615]        :                                       
+[ 616]        :                                       ENDM
+[ 617]        :                                       
+[ 618]        :                                       
+[ 619]        :                                       PRINT_H MACRO DAT		;Macro for Printing for Humidity
+[ 620]        :                                       ASETB LCDRS
+[ 621]        :                                       PUSHALL
+[ 622]        :                                       MOV AL, DAT
+[ 623]        :                                       MOV DX, A8255+00H
+[ 624]        :                                       OUT DX, AL
+[ 625]        :                                       ASETB LCDEN
+[ 626]        :                                       ACLRB LCDEN
+[ 627]        :                                       POPALL
+[ 628]        :                                       
+[ 629]        :                                       ENDM
+[ 630]        :                                       
+[ 631]        :                                       PRINT_P MACRO DAT	   ;Macro for Printing for Pressure
+[ 632]        :                                       ASETB LCDRS
+[ 633]        :                                       PUSHALL
+[ 634]        :                                       MOV AL, DAT
+[ 635]        :                                       MOV DX, A8255+00H
+[ 636]        :                                       OUT DX, AL
+[ 637]        :                                       ASETB LCDEN
+[ 638]        :                                       ACLRB LCDEN
+[ 639]        :                                       POPALL
+[ 640]        :                                       
+[ 641]        :                                       ENDM
+[ 642]        :                                       
+[ 643]        :                                       LCD_CLEAR MACRO
+[ 644]        :                                       LCD_OUT 01H
+[ 645]        :                                       ENDM
+[ 646]        :                                       
+[ 647]        :                                       
+[ 648]        :                                       DIV_ROT MACRO  INP 			;Macros to Divide since DIV command  gave error
+[ 649]        :                                       
+[ 650]        :                                       PUSHALL
+[ 651]        :                                       MOV CX, 00
+[ 652]        :                                       MOV BX, INP
+[ 653]        :                                       
+[ 654]        :                                       LOOPT:
+[ 655]        :                                       SUB AX, BX
+[ 656]        :                                       	INC CX
+[ 657]        :                                       CMP AX, 0
+[ 658]        :                                       JGE LOOPT
+[ 659]        :                                       
+[ 660]        :                                       	DEC CX
+[ 661]        :                                       	ADD AX, BX
+[ 662]        :                                       	
+[ 663]        :                                       	MOV R, AL
+[ 664]        :                                       	MOV Q, CL
+[ 665]        :                                       
+[ 666]        :                                       	POPALL
+[ 667]        :                                       ENDM
+[ 668]        :                                       
+[ 669]        :                                       
+[ 670]        :                                       DIV_ROTH MACRO  INP
+[ 671]        :                                       
+[ 672]        :                                       PUSHALL
+[ 673]        :                                       MOV CX, 00
+[ 674]        :                                       MOV BX, INP
+[ 675]        :                                       
+[ 676]        :                                       LOOPH:
+[ 677]        :                                       SUB AX, BX
+[ 678]        :                                       	INC CX
+[ 679]        :                                       CMP AX, 0
+[ 680]        :                                       JGE LOOPH
+[ 681]        :                                       
+[ 682]        :                                       	DEC CX
+[ 683]        :                                       	ADD AX, BX
+[ 684]        :                                       	
+[ 685]        :                                       	MOV R, AL
+[ 686]        :                                       	MOV Q, CL
+[ 687]        :                                       
+[ 688]        :                                       	POPALL
+[ 689]        :                                       ENDM
+[ 690]        :                                       
+[ 691]        :                                       DIV_ROTP MACRO  INP
+[ 692]        :                                       
+[ 693]        :                                       PUSHALL
+[ 694]        :                                       MOV CX, 00
+[ 695]        :                                       MOV BX, INP
+[ 696]        :                                       
+[ 697]        :                                       LOOPP:
+[ 698]        :                                       SUB AX, BX
+[ 699]        :                                       	INC CX
+[ 700]        :                                       CMP AX, 0
+[ 701]        :                                       JGE LOOPP
+[ 702]        :                                       
+[ 703]        :                                       	DEC CX
+[ 704]        :                                       	ADD AX, BX
+[ 705]        :                                       	
+[ 706]        :                                       	MOV R, AL
+[ 707]        :                                       	MOV Q, CL
+[ 708]        :                                       
+[ 709]        :                                       	POPALL
+[ 710]        :                                       ENDM
+[ 711]        :                                       
+[ 712]        :                                       ;------------------------START-PROCEDURE DEFS-----------------------;
+[ 713]        :                                       
+[ 714]    076D:                                       DELAY_20MS PROC NEAR		;Procedure to Set a delay of 20ms
+[ 715]    076D: BA 0A 00                              MOV DX, 10
+[ 716]    0770: B9 31 09                              R1: MOV CX, 2353
+[ 717]    0773: E2 FE                                 R2: LOOP R2
+[ 718]    0775: 4A                                    DEC DX
+[ 719]    0776: 75 F8                                 JNE R1
+[ 720]    0778: C3                                    RET
+[ 721]        :                                       DELAY_20MS ENDP
+[ 722]        :                                       
+[ 723]    0779:                                       PRINT_STR_T PROC NEAR   ;Print the String for Temperature
+[ 724]    0779: BE 31 02                              LEA SI, T_DISP
+[ 725]    077C: 8A 0E 68 02                           MOV CL, T_CNT
+[ 726]    0780: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   REPEATT: PRINT_T [SI]
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A 04 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 727]    07EE: 46                                    INC SI
+[ 728]    07EF: E2 8F                                 LOOP REPEATT
+[ 729]    07F1: C3                                    RET
+[ 730]        :                                       PRINT_STR_T ENDP
+[ 731]        :                                       
+[ 732]        :                                       
+[ 733]    07F2:                                       PRINT_STR_H PROC NEAR    ;Print the String for Humidity
+[ 734]    07F2: BE 7B 02                              LEA SI, H_DISP
+[ 735]    07F5: 8A 0E B2 02                           MOV CL, H_CNT
+[ 736]    07F9: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   REPEATH: PRINT_H [SI] 		
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A 04 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 737]    0867: 46                                    INC SI
+[ 738]    0868: E2 8F                                 LOOP REPEATH
+[ 739]    086A: C3                                    RET
+[ 740]        :                                       PRINT_STR_H ENDP
+[ 741]        :                                       
+[ 742]        :                                       
+[ 743]    086B:                                       PRINT_STR_P PROC NEAR   ;Print the String for Pressure
+[ 744]    086B: BE C3 02                              LEA SI, P_DISP
+[ 745]    086E: 8A 0E FC 02                           MOV CL, P_CNT
+[ 746]    0872: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   REPEATP: PRINT_P [SI]
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A 04 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 747]    08E0: 46                                    INC SI
+[ 748]    08E1: E2 8F                                 LOOP REPEATP
+[ 749]    08E3: C3                                    RET
+[ 750]        :                                       PRINT_STR_P ENDP
+[ 751]        :                                       
+[ 752]        :                                       
+[ 753]        :                                       ;Subroutines for Scaling the Various Components
+[ 754]        :                                       
+[ 755]    08E4:                                       CONVERT_HUMI PROC NEAR
+[ 756]        :                                       
+[ 757]        :                                       ;GET IT TO SCALE (0-99%)
+[ 758]    08E4: B4 00                                 MOV AH, 00H
+[ 759]    08E6: A0 1D 03                              MOV AL, Q
+[ 760]    08E9: B3 63                                 MOV BL, 99D
+[ 761]    08EB: F6 E3                                 MUL BL
+[ 762]    08ED: B3 FF                                 MOV BL, 0FFH            ;FFH IS THE MAX O/P FROM ADC
+[ 763]    08EF: F6 F3                                 DIV BL
+[ 764]        :                                       	
+[ 765]        :                                       
+[ 766]        :                                       ;SPLIT THE NUMBERS
+[ 767]    08F1: B4 00                                 MOV AH, 00H
+[ 768]    08F3: B3 0A                                 MOV BL, 10D
+[ 769]    08F5: F6 F3                                 DIV BL
+[ 770]        :                                       
+[ 771]    08F7: BE 0D 03                              LEA SI, NUMSTR          ;LOAD APPROPRIATE ASCII VALUE(QUO)
+[ 772]    08FA: 05 30 30                              ADD AX, 3030H
+[ 773]    08FD: 88 04                                 MOV [SI], AL
+[ 774]    08FF: 88 64 01                              MOV [SI+1], AH
+[ 775]        :                                       
+[ 776]    0902: A0 1E 03                              MOV AL, R
+[ 777]    0905: B4 00                                 MOV AH, 00H
+[ 778]        :                                       
+[ 779]    0907: BB 64 00                              MOV BX, 100D
+[ 780]    090A: F7 E3                                 MUL BX
+[ 781]    090C: B3 0C                                 MOV BL, 12D
+[ 782]    090E: F6 F3                                 DIV BL
+[ 783]        :                                       
+[ 784]    0910: B4 00                                 MOV AH, 00H
+[ 785]    0912: B3 0A                                 MOV BL, 10D
+[ 786]    0914: F6 F3                                 DIV BL
+[ 787]    0916: 05 30 30                              ADD AX, 3030H
+[ 788]        :                                       
+[ 789]    0919: 88 44 02                              MOV [SI+2], AL      ;LOAD APPROPRIATE ASCII VALUE(REM)
+[ 790]    091C: 88 64 03                              MOV [SI+3], AH
+[ 791]        :                                       
+[ 792]    091F: C3                                    RET
+[ 793]        :                                       
+[ 794]        :                                       CONVERT_HUMI ENDP
+[ 795]        :                                       
+[ 796]        :                                       
+[ 797]    0920:                                       CONVERT_TEMP PROC NEAR 			;Subroutine for Scaling Temperature
+[ 798]        :                                       
+[ 799]        :                                       ;GET IT TO SCALE (5-50 C)
+[ 800]    0920: B4 00                                 MOV AH, 00H
+[ 801]    0922: A0 1D 03                              MOV AL, Q
+[ 802]    0925: B3 2D                                 MOV BL, 45D
+[ 803]    0927: F6 E3                                 MUL BL
+[ 804]    0929: B3 FF                                 MOV BL, 0FFH
+[ 805]    092B: F6 F3                                 DIV BL
+[ 806]    092D: 05 05 00                              	ADD AX, 05H
+[ 807]        :                                       
+[ 808]        :                                       ;SPLIT THE NUMBERS
+[ 809]    0930: B4 00                                 MOV AH, 00H
+[ 810]    0932: B3 0A                                 MOV BL, 10D
+[ 811]    0934: F6 F3                                 DIV BL
+[ 812]        :                                       
+[ 813]    0936: BE 0D 03                              LEA SI, NUMSTR
+[ 814]    0939: 05 30 30                              ADD AX, 3030H
+[ 815]    093C: 88 04                                 MOV [SI], AL
+[ 816]    093E: 88 64 01                              MOV [SI+1], AH
+[ 817]        :                                       
+[ 818]    0941: A0 1E 03                              MOV AL, R
+[ 819]    0944: B4 00                                 MOV AH, 00H
+[ 820]        :                                       
+[ 821]    0946: BB 64 00                              MOV BX, 100D
+[ 822]    0949: F7 E3                                 MUL BX
+[ 823]    094B: B3 0C                                 MOV BL, 12D
+[ 824]    094D: F6 F3                                 DIV BL
+[ 825]        :                                       
+[ 826]    094F: B4 00                                 MOV AH, 00H
+[ 827]    0951: B3 0A                                 MOV BL, 10D
+[ 828]    0953: F6 F3                                 DIV BL
+[ 829]    0955: 05 30 30                              ADD AX, 3030H
+[ 830]        :                                       
+[ 831]    0958: 88 44 02                              MOV [SI+2], AL
+[ 832]    095B: 88 64 03                              MOV [SI+3], AH
+[ 833]        :                                       
+[ 834]    095E: C3                                    RET
+[ 835]        :                                       
+[ 836]        :                                       CONVERT_TEMP ENDP
+[ 837]        :                                       
+[ 838]        :                                       
+[ 839]        :                                       
+[ 840]    095F:                                       CONVERT_PRES PROC NEAR				;Subroutine for Scaling Pressure
+[ 841]        :                                       
+[ 842]        :                                       ;GET IT TO SCALE (0-2 BAR)
+[ 843]    095F: B4 00                                 MOV AH, 00H
+[ 844]    0961: A0 1D 03                              MOV AL, Q
+[ 845]    0964: B3 02                                 MOV BL, 02D
+[ 846]    0966: F6 E3                                 MUL BL
+[ 847]    0968: B3 FF                                 MOV BL, 0FFH            ;FFH IS THE MAX O/P FROM ADC
+[ 848]    096A: F6 F3                                 DIV BL
+[ 849]        :                                       	
+[ 850]        :                                       
+[ 851]        :                                       ;SPLIT THE NUMBERS
+[ 852]    096C: B4 00                                 MOV AH, 00H
+[ 853]    096E: B3 0A                                 MOV BL, 10D
+[ 854]    0970: F6 F3                                 DIV BL
+[ 855]        :                                       
+[ 856]    0972: BE 0D 03                              LEA SI, NUMSTR          ;LOAD APPROPRIATE ASCII VALUE(QUO)
+[ 857]    0975: 05 30 30                              ADD AX, 3030H
+[ 858]    0978: 88 04                                 MOV [SI], AL
+[ 859]    097A: 88 64 01                              MOV [SI+1], AH
+[ 860]        :                                       
+[ 861]    097D: A0 1E 03                              MOV AL, R
+[ 862]    0980: B4 00                                 MOV AH, 00H
+[ 863]        :                                       
+[ 864]    0982: BB 64 00                              MOV BX, 100D
+[ 865]    0985: F7 E3                                 MUL BX
+[ 866]    0987: B3 0C                                 MOV BL, 12D
+[ 867]    0989: F6 F3                                 DIV BL
+[ 868]        :                                       
+[ 869]    098B: B4 00                                 MOV AH, 00H
+[ 870]    098D: B3 0A                                 MOV BL, 10D
+[ 871]    098F: F6 F3                                 DIV BL
+[ 872]    0991: 05 30 30                              ADD AX, 3030H
+[ 873]        :                                       
+[ 874]    0994: 88 44 02                              MOV [SI+2], AL      ;LOAD APPROPRIATE ASCII VALUE(REM)
+[ 875]    0997: 88 64 03                              MOV [SI+3], AH
+[ 876]        :                                       
+[ 877]    099A: C3                                    RET
+[ 878]        :                                       
+[ 879]        :                                       CONVERT_PRES ENDP
+[ 880]        :                                       
+[ 881]        :                                       
+[ 882]        :                                       ;OUTPUT ASCII EQUIV VALUES ON LCD FROM MEM LOCATION
+[ 883]        :                                       
+[ 884]    099B:                                       DATOUT_T PROC NEAR
+[ 885]        :                                       
+[ 886]    099B: 50 53 51 52 56 57 B0 20 34 FF 8A 1E   LCD_OUT 01H
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 50 53 51 52 
+                56 57 B0 01 BA 10 40 EE 50 53 51 52 
+                56 57 B0 80 8A 1E 2F 02 0A C3 BA 14 
+                40 EE 8A D8 88 1E 2F 02 5F 5E 5A 59 
+                5B 58 50 53 51 52 56 57 B0 80 34 FF 
+                8A 1E 2F 02 22 C3 BA 14 40 EE 8A D8 
+                88 1E 2F 02 5F 5E 5A 59 5B 58 E8 65 
+                FD 5F 5E 5A 59 5B 58                
+[ 887]    0A0E: E8 68 FD                              CALL PRINT_STR_T
+[ 888]        :                                       
+[ 889]    0A11: A0 0D 03                              MOV AL, NUMSTR
+[ 890]    0A14: 8A 26 0E 03                           MOV AH, NUMSTR+1
+[ 891]    0A18: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_T AL
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A C0 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 892]    0A86: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_T AH
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A C4 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 893]    0AF4: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_T '.'
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                B0 2E BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 894]    0B62: A0 0F 03                              MOV AL, NUMSTR+2
+[ 895]    0B65: 8A 26 10 03                           MOV AH, NUMSTR+3
+[ 896]        :                                       
+[ 897]    0B69: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_T AL
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A C0 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 898]    0BD7: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_T AH
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A C4 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 899]    0C45: C3                                    RET
+[ 900]        :                                       
+[ 901]        :                                       DATOUT_T ENDP
+[ 902]        :                                       
+[ 903]        :                                       
+[ 904]        :                                       ;OUTPUT ASCII EQUIV VALUES ON LCD FROM MEM LOCATION
+[ 905]    0C46:                                       DATOUT_H PROC NEAR
+[ 906]        :                                       
+[ 907]    0C46: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_T 01H
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                B0 01 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 908]    0CB4: E8 3B FB                              CALL PRINT_STR_H
+[ 909]        :                                       
+[ 910]    0CB7: A0 0D 03                              MOV AL, NUMSTR
+[ 911]    0CBA: 8A 26 0E 03                           MOV AH, NUMSTR+1
+[ 912]    0CBE: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_H AL
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A C0 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 913]    0D2C: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_H AH
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A C4 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 914]    0D9A: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_H '.'
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                B0 2E BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 915]    0E08: A0 0F 03                              MOV AL, NUMSTR+2
+[ 916]    0E0B: 8A 26 10 03                           MOV AH, NUMSTR+3
+[ 917]        :                                       
+[ 918]    0E0F: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_H AL
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A C0 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 919]    0E7D: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_H AH
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A C4 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 920]    0EEB: C3                                    RET
+[ 921]        :                                       
+[ 922]        :                                       DATOUT_H ENDP
+[ 923]        :                                       
+[ 924]    0EEC:                                       DATOUT_P PROC NEAR
+[ 925]        :                                       
+[ 926]    0EEC: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_T 01H
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                B0 01 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 927]    0F5A: E8 0E F9                              CALL PRINT_STR_P
+[ 928]        :                                       
+[ 929]    0F5D: A0 0D 03                              MOV AL, NUMSTR
+[ 930]    0F60: 8A 26 0E 03                           MOV AH, NUMSTR+1
+[ 931]    0F64: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_P AL
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A C0 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 932]    0FD2: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_P AH
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A C4 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 933]    1040: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_P '.'
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                B0 2E BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 934]    10AE: A0 0F 03                              MOV AL, NUMSTR+2
+[ 935]    10B1: 8A 26 10 03                           MOV AH, NUMSTR+3
+[ 936]        :                                       
+[ 937]    10B5: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_P AL
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A C0 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 938]    1123: 50 53 51 52 56 57 B0 20 8A 1E 2F 02   PRINT_P AH
+                0A C3 BA 14 40 EE 8A D8 88 1E 2F 02 
+                5F 5E 5A 59 5B 58 50 53 51 52 56 57 
+                8A C4 BA 10 40 EE 50 53 51 52 56 57 
+                B0 80 8A 1E 2F 02 0A C3 BA 14 40 EE 
+                8A D8 88 1E 2F 02 5F 5E 5A 59 5B 58 
+                50 53 51 52 56 57 B0 80 34 FF 8A 1E 
+                2F 02 22 C3 BA 14 40 EE 8A D8 88 1E 
+                2F 02 5F 5E 5A 59 5B 58 5F 5E 5A 59 
+                5B 58                               
+[ 939]    1191: C3                                    RET
+[ 940]        :                                       
+[ 941]        :                                       DATOUT_P ENDP
+[ 942]        :                                       
+[ 943]        :                                       ; ------------------------- END OF PROCEDURE DEFS --------------------------;
+[ 944]        :                                       
+[ 945]        :                                       ;------------------------START OF ISRS-----------------------;
+[ 946]        :                                       
+[ 947]        :                                       ;5 MINUTE INTERRUPT
+[ 948]    1192:                                       ISR1:
+[ 949]        :                                       
+[ 950]        :                                       	; FIRST MAKE OE HIGH PC1
+[ 951]    1192: 50 53 51 52 56 57 B0 02 8A 1E 30 02   	BSETB ADCOE
+                0A C3 BA 24 40 EE 8A D8 88 1E 30 02 
+                5F 5E 5A 59 5B 58                   
+[ 952]        :                                       
+[ 953]        :                                       
+[ 954]    11B0: 80 3E 7A 02 00                        CMP THP,00H
+[ 955]    11B5: 74 03 E9 DF 00                        JNZ HUMIISR1
+[ 956]        :                                       
+[ 957]        :                                       	;ASSUMING THAT CBA IS CONNECTED TO PC 4-3-2
+[ 958]        :                                       	;SELECT CHANNEL 000
+[ 959]    11BA: 50 53 51 52 56 57 B0 04 34 FF 8A 1E   	BCLRB ADCA
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[ 960]    11DA: 50 53 51 52 56 57 B0 08 34 FF 8A 1E   	BCLRB ADCB
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[ 961]    11FA: 50 53 51 52 56 57 B0 10 34 FF 8A 1E   	BCLRB ADCC
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[ 962]        :                                       
+[ 963]        :                                       	;NOW MAKE A HIGH-LOW PULSE ON ALE;PC5
+[ 964]    121A: 50 53 51 52 56 57 B0 20 8A 1E 30 02   	BSETB ADCALE
+                0A C3 BA 24 40 EE 8A D8 88 1E 30 02 
+                5F 5E 5A 59 5B 58                   
+[ 965]    1238: 50 53 51 52 56 57 B0 20 34 FF 8A 1E   	BCLRB ADCALE
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[ 966]        :                                       
+[ 967]        :                                       	;HIGH-LOW PULSE ON SOC - CONNECTED TO PC0
+[ 968]    1258: 50 53 51 52 56 57 B0 01 8A 1E 30 02   	BSETB ADCST
+                0A C3 BA 24 40 EE 8A D8 88 1E 30 02 
+                5F 5E 5A 59 5B 58                   
+[ 969]    1276: 50 53 51 52 56 57 B0 01 34 FF 8A 1E   	BCLRB ADCST
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[ 970]        :                                       
+[ 971]        :                                       	;NOW WAIT FOR EOC INTERRUPT
+[ 972]    1296: E9 C1 01                              JMP ISR1END
+[ 973]        :                                       
+[ 974]    1299:                                       HUMIISR1:           ; THP == 1
+[ 975]    1299: 80 3E 7A 02 01                        CMP THP,01H
+[ 976]    129E: 74 03 E9 DD 00                        JNZ PRESISR1
+[ 977]        :                                       
+[ 978]        :                                       ;SELECT CHANNEL 001
+[ 979]    12A3: 50 53 51 52 56 57 B0 04 8A 1E 30 02   	BSETB ADCA
+                0A C3 BA 24 40 EE 8A D8 88 1E 30 02 
+                5F 5E 5A 59 5B 58                   
+[ 980]    12C1: 50 53 51 52 56 57 B0 08 34 FF 8A 1E   	BCLRB ADCB
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[ 981]    12E1: 50 53 51 52 56 57 B0 10 34 FF 8A 1E   	BCLRB ADCC
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[ 982]        :                                       
+[ 983]        :                                       	;NOW MAKE A HIGH-LOW PULSE ON ALE;PC5
+[ 984]    1301: 50 53 51 52 56 57 B0 20 8A 1E 30 02   	BSETB ADCALE
+                0A C3 BA 24 40 EE 8A D8 88 1E 30 02 
+                5F 5E 5A 59 5B 58                   
+[ 985]    131F: 50 53 51 52 56 57 B0 20 34 FF 8A 1E   	BCLRB ADCALE
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[ 986]        :                                       
+[ 987]        :                                       	;HIGH-LOW PULSE ON SOC - CONNECTED TO PC0
+[ 988]    133F: 50 53 51 52 56 57 B0 01 8A 1E 30 02   	BSETB ADCST
+                0A C3 BA 24 40 EE 8A D8 88 1E 30 02 
+                5F 5E 5A 59 5B 58                   
+[ 989]    135D: 50 53 51 52 56 57 B0 01 34 FF 8A 1E   	BCLRB ADCST
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[ 990]        :                                       
+[ 991]    137D: E9 DA 00                              JMP ISR1END
+[ 992]        :                                       
+[ 993]    1380:                                       PRESISR1:
+[ 994]        :                                       
+[ 995]        :                                       ;SELECT CHANNEL 010
+[ 996]    1380: 50 53 51 52 56 57 B0 04 34 FF 8A 1E   	BCLRB ADCA
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[ 997]    13A0: 50 53 51 52 56 57 B0 08 8A 1E 30 02   	BSETB ADCB
+                0A C3 BA 24 40 EE 8A D8 88 1E 30 02 
+                5F 5E 5A 59 5B 58                   
+[ 998]    13BE: 50 53 51 52 56 57 B0 10 34 FF 8A 1E   	BCLRB ADCC
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[ 999]        :                                       
+[1000]        :                                       	;NOW MAKE A HIGH-LOW PULSE ON ALE;PC5
+[1001]    13DE: 50 53 51 52 56 57 B0 20 8A 1E 30 02   	BSETB ADCALE
+                0A C3 BA 24 40 EE 8A D8 88 1E 30 02 
+                5F 5E 5A 59 5B 58                   
+[1002]    13FC: 50 53 51 52 56 57 B0 20 34 FF 8A 1E   	BCLRB ADCALE
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[1003]        :                                       
+[1004]        :                                       	;HIGH-LOW PULSE ON SOC - CONNECTED TO PC0
+[1005]    141C: 50 53 51 52 56 57 B0 01 8A 1E 30 02   	BSETB ADCST
+                0A C3 BA 24 40 EE 8A D8 88 1E 30 02 
+                5F 5E 5A 59 5B 58                   
+[1006]    143A: 50 53 51 52 56 57 B0 01 34 FF 8A 1E   	BCLRB ADCST
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[1007]        :                                       
+[1008]        :                                       	
+[1009]        :                                       
+[1010]    145A:                                       ISR1END:
+[1011]        :                                       
+[1012]    145A: CF                                    IRET
+[1013]        :                                       
+[1014]        :                                       
+[1015]        :                                       ;EOC INTERRUPT
+[1016]    145B:                                       ISR3:
+[1017]        :                                       
+[1018]    145B: 80 3E 7A 02 00                        CMP THP,00H
+[1019]    1460: 75 66                                 JNZ HUMIISR3
+[1020]        :                                       
+[1021]        :                                       
+[1022]    1462: BA 22 40                              	MOV DX, B8255+02H
+[1023]    1465: EC                                    	IN AL, DX
+[1024]        :                                       
+[1025]        :                                       	;FINALLY MAKE OE LOW
+[1026]    1466: 50 53 51 52 56 57 B0 02 34 FF 8A 1E   	BCLRB ADCOE
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[1027]        :                                       
+[1028]        :                                       
+[1029]    1486: 83 3E 69 02 00                        	CMP T_FLAG, 0
+[1030]    148B: 75 22                                 	JNZ X4
+[1031]        :                                       	;FOR THE FIRST HOUR, FLAGCNT = 0; FOR CONSECUTIVE ITERATIONS, IT'LL BE >0
+[1032]        :                                       
+[1033]    148D: 8B 1E 77 02                           	MOV BX, CTR
+[1034]    1491: BE 6B 02                              	LEA SI, VALS
+[1035]        :                                       	
+[1036]    1494: 88 00                                 	MOV [SI+BX], AL
+[1037]    1496: 43                                    	INC BX
+[1038]    1497: 89 1E 77 02                           	MOV CTR, BX
+[1039]    149B: 83 FB 0C                              	CMP BX, 12
+[1040]    149E: 75 21                                 	JNZ X5
+[1041]        :                                       
+[1042]    14A0: C7 06 69 02 01 00                     	MOV T_FLAG, 1
+[1043]    14A6: C7 06 77 02 00 00                     	MOV CTR, 0
+[1044]    14AC: E9 E6 00                              	JMP ENDISR1
+[1045]        :                                       
+[1046]    14AF: 8B 1E 77 02                           	X4:	MOV BX, CTR
+[1047]    14B3: BE 6B 02                              	LEA SI, VALS
+[1048]    14B6: 88 00                                 	MOV [SI+BX], AL
+[1049]    14B8: 43                                    	INC BX
+[1050]    14B9: 83 FB 0C                              	CMP BX, 12
+[1051]    14BC: 75 03                                 	JNZ X5
+[1052]    14BE: BB 00 00                              	MOV BX, 0
+[1053]        :                                       
+[1054]    14C1: 89 1E 77 02                           	X5:	MOV CTR, BX
+[1055]        :                                       
+[1056]    14C5: E9 CD 00                              JMP ENDISR1
+[1057]        :                                       
+[1058]    14C8:                                       HUMIISR3:       ;THP == 1
+[1059]    14C8: 80 3E 7A 02 01                        CMP THP,01H
+[1060]    14CD: 75 64                                 JNZ PRESISR3
+[1061]        :                                       
+[1062]        :                                       
+[1063]    14CF: BA 22 40                              	MOV DX, B8255+02H
+[1064]    14D2: EC                                    	IN AL, DX
+[1065]        :                                       
+[1066]        :                                       	;FINALLY MAKE OE LOW
+[1067]    14D3: 50 53 51 52 56 57 B0 02 34 FF 8A 1E   	BCLRB ADCOE
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[1068]        :                                       
+[1069]        :                                       
+[1070]    14F3: 83 3E B3 02 00                        	CMP H_FLAG, 0
+[1071]    14F8: 75 21                                 	JNZ X41
+[1072]        :                                       
+[1073]    14FA: 8B 1E C1 02                           	MOV BX, CTR11
+[1074]    14FE: BE B5 02                              	LEA SI, VALS11
+[1075]        :                                       	
+[1076]    1501: 88 00                                 	MOV [SI+BX], AL
+[1077]    1503: 43                                    	INC BX
+[1078]    1504: 89 1E C1 02                           	MOV CTR11, BX
+[1079]    1508: 83 FB 0C                              	CMP BX, 12
+[1080]    150B: 75 20                                 	JNZ X51
+[1081]        :                                       
+[1082]    150D: C7 06 B3 02 01 00                     	MOV H_FLAG, 1
+[1083]    1513: C7 06 C1 02 00 00                     	MOV CTR11, 0
+[1084]    1519: EB 7A                                 	JMP ENDISR1
+[1085]        :                                       
+[1086]    151B: 8B 1E C1 02                           	X41:	MOV BX, CTR11
+[1087]    151F: BE B5 02                              	LEA SI, VALS11
+[1088]    1522: 88 00                                 	MOV [SI+BX], AL
+[1089]    1524: 43                                    	INC BX
+[1090]    1525: 83 FB 0C                              	CMP BX, 12
+[1091]    1528: 75 03                                 	JNZ X51
+[1092]    152A: BB 00 00                              	MOV BX, 0
+[1093]        :                                       
+[1094]    152D: 89 1E C1 02                           	X51:	MOV CTR11, BX
+[1095]    1531: EB 62                                 JMP ENDISR1
+[1096]        :                                       
+[1097]    1533:                                       PRESISR3:
+[1098]        :                                       
+[1099]        :                                       
+[1100]    1533: BA 22 40                              	MOV DX, B8255+02H
+[1101]    1536: EC                                    	IN AL, DX
+[1102]        :                                       
+[1103]        :                                       	;FINALLY MAKE OE LOW
+[1104]    1537: 50 53 51 52 56 57 B0 02 34 FF 8A 1E   	BCLRB ADCOE
+                30 02 22 C3 BA 24 40 EE 8A D8 88 1E 
+                30 02 5F 5E 5A 59 5B 58             
+[1105]        :                                       
+[1106]        :                                       
+[1107]    1557: 83 3E FD 02 00                        	CMP P_FLAG, 0
+[1108]    155C: 75 21                                 	JNZ X411
+[1109]        :                                       	
+[1110]        :                                       
+[1111]    155E: 8B 1E 0B 03                           	MOV BX, CTR111
+[1112]    1562: BE FF 02                              	LEA SI, VALS111
+[1113]        :                                       	
+[1114]    1565: 88 00                                 	MOV [SI+BX], AL
+[1115]    1567: 43                                    	INC BX
+[1116]    1568: 89 1E 0B 03                           	MOV CTR111, BX
+[1117]    156C: 83 FB 0C                              	CMP BX, 12
+[1118]    156F: 75 20                                 	JNZ X511
+[1119]        :                                       
+[1120]    1571: C7 06 FD 02 01 00                     	MOV P_FLAG, 1
+[1121]    1577: C7 06 0B 03 00 00                     	MOV CTR111, 0
+[1122]    157D: EB 16                                 	JMP ENDISR1
+[1123]        :                                       
+[1124]    157F: 8B 1E 0B 03                           	X411:	MOV BX, CTR111
+[1125]    1583: BE FF 02                              	LEA SI, VALS111
+[1126]    1586: 88 00                                 	MOV [SI+BX], AL
+[1127]    1588: 43                                    	INC BX
+[1128]    1589: 83 FB 0C                              	CMP BX, 12
+[1129]    158C: 75 03                                 	JNZ X511
+[1130]    158E: BB 00 00                              	MOV BX, 0
+[1131]        :                                       
+[1132]    1591: 89 1E 0B 03                           	X511:	MOV CTR111, BX
+[1133]        :                                       	
+[1134]    1595:                                       	ENDISR1:
+[1135]    1595: CF                                    IRET
+[1136]        :                                       
+[1137]        :                                       ;1HR INT
+[1138]    1596:                                       ISR2:
+[1139]        :                                       
+[1140]    1596: 80 3E 7A 02 00                        CMP THP,00H
+[1141]    159B: 75 5C                                 JNZ HUMIISR2
+[1142]        :                                       
+[1143]    159D: BB 00 00                              	MOV BX, 00H
+[1144]    15A0: B9 0C 00                              	MOV CX, 12D
+[1145]    15A3: BE 6B 02                              	LEA SI, VALS
+[1146]        :                                       
+[1147]    15A6:                                       	XADD:
+[1148]    15A6: 8A 14                                 	MOV DL, [SI]
+[1149]    15A8: B6 00                                 	MOV DH, 00H
+[1150]    15AA: 03 DA                                 	ADD BX, DX
+[1151]    15AC: 46                                    	INC SI
+[1152]    15AD: 49                                    	DEC CX
+[1153]    15AE: 75 F6                                 	JNZ XADD
+[1154]    15B0: 8B C3                                 	MOV AX, BX
+[1155]        :                                       
+[1156]    15B2: 8B 16 69 02                           	MOV DX, T_FLAG
+[1157]    15B6: 83 FA 01                              	CMP DX, 1
+[1158]    15B9: 75 08                                 	JNZ X2
+[1159]        :                                       
+[1160]    15BB: C7 06 1F 03 0C 00                     	MOV DIVBY, 12D
+[1161]    15C1: EB 08                                 	JMP X3
+[1162]        :                                       
+[1163]    15C3:                                       	X2:
+[1164]    15C3: 8B 16 77 02                           	MOV DX, CTR
+[1165]    15C7: 89 16 1F 03                           	MOV DIVBY, DX
+[1166]    15CB:                                       	X3:
+[1167]        :                                       
+[1168]    15CB: 50 53 51 52 56 57 B9 00 00 8B 1E 1F   	DIV_ROT DIVBY
+                03 2B C3 41 3D 00 00 7D F8 49 03 C3 
+                A2 1E 03 88 0E 1D 03 5F 5E 5A 59 5B 
+                58                                  
+[1169]        :                                       
+[1170]    15F0: E8 2D F3                              	CALL CONVERT_TEMP
+[1171]    15F3: E8 A5 F3                              	CALL DATOUT_T
+[1172]        :                                       
+[1173]    15F6: E9 BB 00                              JMP ENDISR2:
+[1174]        :                                       
+[1175]    15F9:                                       HUMIISR2:
+[1176]    15F9: 80 3E 7A 02 01                        CMP THP,01H
+[1177]    15FE: 75 5B                                 JNZ PRESISR2
+[1178]        :                                       
+[1179]    1600: BB 00 00                              	MOV BX, 00H
+[1180]    1603: B9 0C 00                              	MOV CX, 12D
+[1181]    1606: BE B5 02                              	LEA SI, VALS11
+[1182]        :                                       
+[1183]    1609:                                       	XADD1:
+[1184]    1609: 8A 14                                 	MOV DL, [SI]
+[1185]    160B: B6 00                                 	MOV DH, 00H
+[1186]    160D: 03 DA                                 	ADD BX, DX
+[1187]    160F: 46                                    	INC SI
+[1188]    1610: 49                                    	DEC CX
+[1189]    1611: 75 F6                                 	JNZ XADD1
+[1190]    1613: 8B C3                                 	MOV AX, BX
+[1191]        :                                       
+[1192]    1615: 8B 16 B3 02                           	MOV DX, H_FLAG
+[1193]    1619: 83 FA 01                              	CMP DX, 1
+[1194]    161C: 75 08                                 	JNZ X21
+[1195]        :                                       
+[1196]    161E: C7 06 1F 03 0C 00                     	MOV DIVBY, 12D
+[1197]    1624: EB 08                                 	JMP X31
+[1198]        :                                       
+[1199]    1626:                                       	X21:
+[1200]    1626: 8B 16 C1 02                           	MOV DX, CTR11
+[1201]    162A: 89 16 1F 03                           	MOV DIVBY, DX
+[1202]    162E:                                       	X31:
+[1203]        :                                       
+[1204]    162E: 50 53 51 52 56 57 B9 00 00 8B 1E 1F   	DIV_ROTH DIVBY
+                03 2B C3 41 3D 00 00 7D F8 49 03 C3 
+                A2 1E 03 88 0E 1D 03 5F 5E 5A 59 5B 
+                58                                  
+[1205]        :                                       
+[1206]    1653: E8 8E F2                              	CALL CONVERT_HUMI
+[1207]    1656: E8 ED F5                              	CALL DATOUT_H
+[1208]    1659: EB 59                                 JMP ENDISR2
+[1209]        :                                       
+[1210]    165B:                                       PRESISR2:
+[1211]        :                                       
+[1212]        :                                       
+[1213]    165B: BB 00 00                              	MOV BX, 00H
+[1214]    165E: B9 0C 00                              	MOV CX, 12D
+[1215]    1661: BE FF 02                              	LEA SI, VALS111
+[1216]        :                                       
+[1217]    1664:                                       	XADD11:
+[1218]    1664: 8A 14                                 	MOV DL, [SI]
+[1219]    1666: B6 00                                 	MOV DH, 00H
+[1220]    1668: 03 DA                                 	ADD BX, DX
+[1221]    166A: 46                                    	INC SI
+[1222]    166B: 49                                    	DEC CX
+[1223]    166C: 75 F6                                 	JNZ XADD11
+[1224]    166E: 8B C3                                 	MOV AX, BX
+[1225]        :                                       
+[1226]    1670: 8B 16 FD 02                           	MOV DX, P_FLAG
+[1227]    1674: 83 FA 01                              	CMP DX, 1
+[1228]    1677: 75 08                                 	JNZ X211
+[1229]        :                                       
+[1230]    1679: C7 06 1F 03 0C 00                     	MOV DIVBY, 12D
+[1231]    167F: EB 08                                 	JMP X311
+[1232]        :                                       
+[1233]    1681:                                       	X211:
+[1234]    1681: 8B 16 0B 03                           	MOV DX, CTR111
+[1235]    1685: 89 16 1F 03                           	MOV DIVBY, DX
+[1236]    1689:                                       	X311:
+[1237]        :                                       
+[1238]    1689: 50 53 51 52 56 57 B9 00 00 8B 1E 1F   	DIV_ROTP DIVBY
+                03 2B C3 41 3D 00 00 7D F8 49 03 C3 
+                A2 1E 03 88 0E 1D 03 5F 5E 5A 59 5B 
+                58                                  
+[1239]        :                                       
+[1240]    16AE: E8 AE F2                              	CALL CONVERT_PRES
+[1241]    16B1: E8 38 F8                              	CALL DATOUT_P
+[1242]        :                                       
+[1243]    16B4:                                       ENDISR2:
+[1244]        :                                       
+[1245]    16B4: CF                                    IRET
+[1246]        :                                       
+[1247]        :                                       ;BUTTON INTERRUPT
+[1248]    16B5:                                       ISR0:
+[1249]    16B5: C6 06 21 03 01                        	MOV UPDATENOW, 01H
+[1250]    16BA: CF                                    IRET
+[1251]        :                                       
+[1252]        :                                       ;-----------------------END OF ISRS------------------------;
+[1253]        :                                       
+[1254]    16BB:                                       QUIT:
+[1255]    16BB: F4                                    HLT
+[1256]        :                                       
+[1257]        :                                       
+[1258]        :                                       
+[1259]        :                                       
+ 
+===================================================================================================
+ 
+
+
+
+
+===================================================================================================
